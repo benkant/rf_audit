@@ -7,6 +7,8 @@ The IKS is defined thus [2](#notes)
 
 > [...] if the VPN client is not running, the clients are Not Allowed to access the Internet
 
+When a device is connected to the Mudi with IKS & VPN enabled, the devices traffic should not be visible to the interface the Mudi uses for WAN access.
+
 ## Equipment, tools, environment setup
 
 ### Device under audit
@@ -64,11 +66,11 @@ sudo airmon-ng start wlan0
 
 _Control_
 
-`strike` -> `DuckSeason` -> WLAN
+`strike` -> `DuckSeason` -> WAN
 
 _Research_
 
-`strike` -> `charlie` -> `DuckSeason` -> WLAN
+`strike` -> `charlie` -> `DuckSeason` -> WAN
 
 ## Methodology
 
@@ -127,7 +129,11 @@ There is a significant amount of work that can, and should, be done to further a
 - the physical rocker switch (to enable, say, Tor)
 - OpenVPN Server
 - WireGuard Client and Server
-- other modes of WLAN access for the Mudi (tethering, 4G)
+- other modes of WAN access for the Mudi (tethering, 4G)
+
+Given the open nature of the device (one can `ssh` into it, and add and remove arbitrary Linux packages), this should be reasonably easy.
+
+As always the hardware, in our case specifically, the baseband processor (in the _Mudi_'s case the _Quectel EP06_ unit), as well as other components, present auditing challenges.
 
 ## Analysis and conclusions
 
@@ -152,8 +158,8 @@ Cases (A) and (B) were observed when following the above [methodology](#methodol
 	https://raw.githubusercontent.com/benkant/rf_prac/master/img/wifi_settings.png
 9. Wikipedia - Foxxcon, accessed February 24, 2020,
 	https://en.wikipedia.org/wiki/Foxconn
-10. Wireshark - transmitted in the clear, screenshot by author, February 26, 2020,
-	https://raw.githubusercontent.com/benkant/rf_prac/master/img/XXX.png
-11. Wireshark - transmitted via Mudi & OpenVPN, screenshot by author, February 26, 2020,
-	https://raw.githubusercontent.com/benkant/rf_prac/master/img/XXX.png
+10. Wireshark - transmitted in the clear, screenshot by author, February 27, 2020,
+	https://raw.githubusercontent.com/benkant/rf_prac/master/img/RabbitSeason_strike-in-the-clear.png
+11. Wireshark - transmitted via Mudi & OpenVPN, screenshot by author, February 27, 2020,
+	https://raw.githubusercontent.com/benkant/rf_prac/master/img/RabbitSeason_strike-in-the-blind.png
 
