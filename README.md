@@ -26,7 +26,7 @@ When a device is connected to the Mudi with _IKS_ & _VPN_ enabled, the device's 
 | 802.11 EDDID | `charlie` |
 
 ### Device being monitored
-| Name | `DuckSeason` |
+| Name | `RabbitSeason` |
 | --- | --- |
 | Make | Huawei Technologies Co., Ltd. |
 | Model | HUAWEI Home Gateway (_HG659_) |
@@ -64,11 +64,11 @@ sudo airmon-ng start wlan0
 
 _Control_
 
-`strike` -> `DuckSeason` -> WAN
+`strike` -> `RabbitSeason` -> WAN
 
 _Research_
 
-`strike` -> `charlie` -> `DuckSeason` -> WAN
+`strike` -> `charlie` -> `RabbitSeason` -> WAN
 
 ## Methodology
 
@@ -84,8 +84,8 @@ Capture packets in different environments and compare them to determine validity
 `wireshark` filters to determine packets captured by `aircrack-ng`:
 | Case | `wireshark` filter |
 | -- | -- |
-| A. `strike` connected directly to `DuckSeason` | `wlan.addr==f8:4e:73:84:a7:b8 && ip` |
-| B. `strike` connected to `DuckSeason` via `charlie` | `wlan.addr==f8:4e:73:84:a7:b8 && ip` |
+| A. `strike` connected directly to `RabbitSeason` | `wlan.addr==f8:4e:73:84:a7:b8 && ip` |
+| B. `strike` connected to `RabbitSeason` via `charlie` | `wlan.addr==f8:4e:73:84:a7:b8 && ip` |
 
 **Null hypothesis**: A control [[10]](#notes) ensuring `aircrack-ng` can retrieve `strike`'s TCP/IP packets when not protected by `charlie`, i.e. union of cases A and B form the null hypothesis.
 
